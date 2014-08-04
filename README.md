@@ -54,24 +54,6 @@ scala> sortilege.eightball.Eightball.random
 res4: sortilege.eightball.Phrase = Phrase(cannot predict now,unknown)
 ```
 
-### Detailed Information
-
-Sortilege is currently using a
-[Complimentary-multiply-with-carry](http://en.wikipedia.org/wiki/Multiply-with-carry#Complementary-multiply-with-carry_generators)
-random number generator provided by
-[Spire](http://github.com/non/spire). Eventually we should make the
-generators pluggable to support alternate implementations.
-
-Users may wish to manually seed the generator with information derived
-from the querant, such as the location and time, the question being
-asked, other background information, etc.
-
-Currently Sortilege is mostly concerned with representing and
-implementing the divination method correctly, without worrying about
-any kind of interpretation phase. Users will need to understand how to
-interpret the results given, using pattern matching or other
-strategies.
-
 ### Getting Sortilege
 
 Sortilege is published to [bintray](https://bintray.com/) using the
@@ -85,6 +67,21 @@ resolvers += "bintray/non" at "http://dl.bintray.com/non/maven"
 
 libraryDependencies += "us.mocul" %% "sortilege" % "0.1.0"
 ```
+
+### Detailed Information
+
+Sortilege is currently using a
+[Complimentary-multiply-with-carry](http://en.wikipedia.org/wiki/Multiply-with-carry#Complementary-multiply-with-carry_generators)
+random number generator provided by
+[Spire](http://github.com/non/spire). Users may wish to manually seed
+the generator with information derived from the querant, such as the
+location and time, the question being asked, other background
+information, etc.
+
+Currently Sortilege is most concerned with representing and
+implementing the divination method correctly, without worrying about
+interpretation. Users will need to understand how to interpret the
+results given, using pattern matching or other strategies.
 
 ### Known Issues
 
@@ -118,7 +115,7 @@ It would be interesting to provide randomized physical simulations of
 divination methods (including dice rolling, coin flipping, and so on).
 
 If we can find (or generate) accurate data about the historical motion
-of heavenly bodies it would be interesting to support various kinds of
+of heavenly bodies it would be possible to support various kinds of
 astrology.
 
 ### Copyright and License
