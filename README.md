@@ -8,7 +8,7 @@
 > proceed by reading signs, events, or omens, or through alleged
 > contact with a supernatural agency.
 
--- [*Divination*](http://en.wikipedia.org/wiki/Divination), Wikipedia
+[*Divination*](http://en.wikipedia.org/wiki/Divination), Wikipedia
 
 ### Overview
 
@@ -74,7 +74,17 @@ strategies.
 
 ### Getting Sortilege
 
-Sortilege is currently unpublished.
+Sortilege is published to [bintray](https://bintray.com/) using the
+[bintray-sbt](https://github.com/softprops/bintray-sbt) plugin.
+
+Sortilege supports Scala 2.10 and 2.11. If you use SBT, you can
+include Sortilege via the following `build.sbt` snippets:
+
+```scala
+resolvers += "bintray/non" at "http://dl.bintray.com/non/maven"
+
+libraryDependencies += "us.mocul" %% "sortilege" % "0.1.0"
+```
 
 ### Known Issues
 
