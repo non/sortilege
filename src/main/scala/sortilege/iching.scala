@@ -20,7 +20,7 @@ object Reading {
 
 case class Hexagram(name: String, num: Int, repr: Int) {
   def glyph: Char = ('\u4DBF' + num).toChar
-  def display: String = s"$name $glyph"
+  def display: String = s"'$name' $glyph"
   def lines: Lines = Lines(repr)
 }
 

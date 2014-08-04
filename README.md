@@ -22,7 +22,7 @@ Sortilege currently supports five divination methods:
  4. [Ogham](http://en.wikipedia.org/wiki/Ogham)
  5. [Magic 8-Ball](http://en.wikipedia.org/wiki/Magic_8-Ball)
 
-Each method has types and methods that allow users to make
+Each of these has types and methods that allow users to make
 predictions, and work with the results.
 
 ### Examples
