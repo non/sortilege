@@ -107,6 +107,10 @@ The random number generator should be pluggable.
 It would be interesting to provide randomized physical simulations of
 divination methods (including dice rolling, coin flipping, and so on).
 
+If we can find (or generate) accurate data about the historical motion
+of heavenly bodies it would be interesting to support various kinds of
+astrology.
+
 ### Copyright and License
 
 All code is available to you under the MIT license, available at
