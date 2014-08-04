@@ -22,9 +22,12 @@ Sortilege currently supports five divination methods:
  4. [Ogham](http://en.wikipedia.org/wiki/Ogham)
  5. [Magic 8-Ball](http://en.wikipedia.org/wiki/Magic_8-Ball)
 
+Each method has types and methods that allow users to make
+predictions, and work with the results.
+
 ### Examples
 
-```scala
+```
 scala> sortilege.iching.IChing.yarrow.display
 res0: String = the clinging fire ䷝ becoming abundance ䷶
 
@@ -63,6 +66,12 @@ Users may wish to manually seed the generator with information derived
 from the querant, such as the location and time, the question being
 asked, other background information, etc.
 
+Currently Sortilege is mostly concerned with representing and
+implementing the divination method correctly, without worrying about
+any kind of interpretation phase. Users will need to understand how to
+interpret the results given, using pattern matching or other
+strategies.
+
 ### Getting Sortilege
 
 Sortilege is currently unpublished.
@@ -80,6 +89,12 @@ authorities.
 ### Future Work
 
 More divination methods could be added.
+
+A high-level query interface is needed, where users can ask questions
+and indicate the desired type for an answer value. Type classes can be
+used to provide flexible mapping between the low-level return types of
+particular divination methods and the high-level types desired
+(e.g. `Boolean`, `StockTrade`, etc.).
 
 Better support for operating on divination result types; possibly a
 "divination monad"?
@@ -102,10 +117,11 @@ Copyright Erik Osheim, 2014.
 
 ### No Warranty
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+> EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+> MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+> NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+> BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+> ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+> CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+> SOFTWARE.
