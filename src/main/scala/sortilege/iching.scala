@@ -1,45 +1,45 @@
-package sortilege.iching
+package sortilege
 
-import spire.random.Generator.rng
-
-sealed trait Reading {
-  def display: String =
-    this match {
-      case Unchanging(h) => h.display
-      case Changing(b, a) => s"${b.display} becoming ${a.display}"
-    }
-}
-
-case class Unchanging(h: Hexagram) extends Reading
-case class Changing(b: Hexagram, a: Hexagram) extends Reading
-
-object Reading {
-  def apply(b: Hexagram, a: Hexagram): Reading =
-    if (b == a) Unchanging(b) else Changing(b, a)
-}
-
-case class Hexagram(name: String, num: Int, repr: Int) {
-  def glyph: Char = ('\u4DBF' + num).toChar
-  def display: String = s"'$name' $glyph"
-  def lines: Lines = Lines(repr)
-}
-
-case class Lines(s1: Line, s2: Line, s3: Line, s4: Line, s5: Line, s6: Line)
-
-object Lines {
-  def apply(repr: Int): Lines = {
-    def f(i: Int): Line = if (((repr >>> i) & 0xf) == 0) Broken else Whole
-    Lines(f(20), f(16), f(12), f(8), f(4), f(0))
-  }
-}
-
-sealed trait Line
-case object Whole extends Line
-case object Broken extends Line
+import spire.random.Generator
 
 object IChing {
 
-  def yarrow(): Reading = {
+  sealed trait Reading {
+    def display: String =
+      this match {
+        case Unchanging(h) => h.display
+        case Changing(b, a) => s"${b.display} becoming ${a.display}"
+      }
+  }
+
+  case class Unchanging(h: Hexagram) extends Reading
+  case class Changing(b: Hexagram, a: Hexagram) extends Reading
+
+  object Reading {
+    def apply(b: Hexagram, a: Hexagram): Reading =
+      if (b == a) Unchanging(b) else Changing(b, a)
+  }
+
+  case class Hexagram(name: String, num: Int, repr: Int) {
+    def glyph: Char = ('\u4DBF' + num).toChar
+    def display: String = s"'$name' $glyph"
+    def lines: Lines = Lines(repr)
+  }
+
+  case class Lines(s1: Line, s2: Line, s3: Line, s4: Line, s5: Line, s6: Line)
+
+  object Lines {
+    def apply(repr: Int): Lines = {
+      def f(i: Int): Line = if (((repr >>> i) & 0xf) == 0) Broken else Whole
+      Lines(f(20), f(16), f(12), f(8), f(4), f(0))
+    }
+  }
+
+  sealed trait Line
+  case object Whole extends Line
+  case object Broken extends Line
+
+  def yarrow(implicit gen: Generator): Reading = {
     def loop(r: Int, i: Int, b: Int, a: Int): Reading =
       if (i >= 6) Reading(lookup(b), lookup(a)) else {
         val k = 1 << (i * 4)
@@ -50,10 +50,10 @@ object IChing {
         else if (x < 9) loop(s, i + 1, b | k, a | k)
         else loop(s, i + 1, b, a)
       }
-    loop(rng.nextInt(), 0, 0, 0)
+    loop(gen.nextInt(), 0, 0, 0)
   }
 
-  def coins(): Reading = {
+  def coins(implicit gen: Generator): Reading = {
     def loop(r: Int, i: Int, b: Int, a: Int): Reading =
       if (i >= 6) Reading(lookup(b), lookup(a)) else {
         val k = 1 << (i * 4)
@@ -64,14 +64,14 @@ object IChing {
         else if (x < 5) loop(s, i + 1, b | k, a | k)
         else loop(s, i + 1, b, a)
       }
-    loop(rng.nextInt(), 0, 0, 0)
+    loop(gen.nextInt(), 0, 0, 0)
   }
 
   def lookup(repr: Int): Hexagram =
     Hexagrams(Table(repr) - 1)
 
-  def random(): Hexagram =
-    Hexagrams(rng.nextInt(64) + 1)
+  def random(implicit gen: Generator): Hexagram =
+    Hexagrams(gen.nextInt(64) + 1)
 
   val Hexagrams: Vector[Hexagram] = Vector(
     Hexagram("the creative heaven", 1, 0x111111),

@@ -1,15 +1,16 @@
-package sortilege.eightball
+package sortilege
 
 import spire.math.Trilean
 import spire.math.Trilean.{True, False, Unknown}
 import spire.implicits._
-import spire.random.Generator.rng
-
-case class Phrase(msg: String, value: Trilean)
+import spire.random.Generator
 
 object Eightball {
 
-  def random(): Phrase = Phrases.qchoose
+  case class Phrase(msg: String, value: Trilean)
+
+  def random(implicit rng: Generator): Phrase =
+    Phrases.qchoose
 
   val Phrases: Vector[Phrase] = Vector(
     Phrase("it is certain", True),
@@ -31,5 +32,5 @@ object Eightball {
     Phrase("my reply is no", False),
     Phrase("my sources say no", False),
     Phrase("outlook not so good", False),
-    Phrase("very doubtful", False)).qshuffled
+    Phrase("very doubtful", False))
 }

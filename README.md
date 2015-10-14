@@ -28,16 +28,16 @@ predictions, and work with the results.
 ### Examples
 
 ```
-scala> sortilege.iching.IChing.yarrow.display
+scala> sortilege.IChing.yarrow.display
 res0: String = the clinging fire ䷝ becoming abundance ䷶
 
-scala> sortilege.runes.Runes.random.display
+scala> sortilege.Runes.random.display
 res1: String = algiz ᛉ
 
-scala> sortilege.ogham.Ogham.choose(3).map(_.display)
+scala> sortilege.Ogham.choose(3).map(_.display)
 res2: scala.collection.immutable.Vector[String] = Vector(Onn ᚑ, Sail ᚄ, Dair ᚇ)
 
-scala> println(sortilege.tarot.Tarot.celticCross.display)
+scala> println(sortilege.Tarot.celticCross.display)
  1. present:    temperance (inverted)
  2. challenge:  five of swords (inverted)
  3. past:       king of pentacles (inverted)
@@ -50,8 +50,8 @@ scala> println(sortilege.tarot.Tarot.celticCross.display)
  9. emotions:   knight of swords (inverted)
 10. outcome:    the moon
 
-scala> sortilege.eightball.Eightball.random
-res4: sortilege.eightball.Phrase = Phrase(cannot predict now,unknown)
+scala> sortilege.Eightball.random
+res4: sortilege.Phrase = Phrase(cannot predict now,unknown)
 ```
 
 ### Getting Sortilege
@@ -60,7 +60,7 @@ Sortilege is published to [bintray](https://bintray.com/) using the
 [bintray-sbt](https://github.com/softprops/bintray-sbt) plugin.
 
 Sortilege supports Scala 2.10 and 2.11. If you use SBT, you can
-include Sortilege via the following `build.sbt` snippets:
+include Sortilege via the following `build.sbt` snippet:
 
 ```scala
 resolvers += "bintray/non" at "http://dl.bintray.com/non/maven"
