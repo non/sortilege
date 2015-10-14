@@ -27,7 +27,7 @@ predictions, and work with the results.
 
 ### Examples
 
-```
+```scala
 scala> sortilege.iching.IChing.yarrow.display
 res0: String = the clinging fire ䷝ becoming abundance ䷶
 
@@ -49,7 +49,7 @@ scala> println(sortilege.tarot.Tarot.celticCross.display)
  8. influences: ten of swords
  9. emotions:   knight of swords (inverted)
 10. outcome:    the moon
-        
+
 scala> sortilege.eightball.Eightball.random
 res4: sortilege.eightball.Phrase = Phrase(cannot predict now,unknown)
 ```
@@ -65,7 +65,7 @@ include Sortilege via the following `build.sbt` snippets:
 ```scala
 resolvers += "bintray/non" at "http://dl.bintray.com/non/maven"
 
-libraryDependencies += "us.mocul" %% "sortilege" % "0.1.0"
+libraryDependencies += "us.mocul" %% "sortilege" % "0.3.0"
 ```
 
 ### Detailed Information
@@ -107,7 +107,7 @@ Better support for operating on divination result types; possibly a
 "divination monad"?
 
 Include text, images, and commentary as resources in the JAR file,
-especially for the I Ching and Tarot.
+especially for the *I Ching* and *Tarot*.
 
 The random number generator should be pluggable.
 
@@ -116,7 +116,7 @@ divination methods (including dice rolling, coin flipping, and so on).
 
 If we can find (or generate) accurate data about the historical motion
 of heavenly bodies it would be possible to support various kinds of
-astrology.
+*Astrology*.
 
 ### Copyright and License
 
@@ -124,7 +124,7 @@ All code is available to you under the MIT license, available at
 http://opensource.org/licenses/mit-license.php and also in the
 [COPYING](COPYING) file.
 
-Copyright Erik Osheim, 2014.
+Copyright Erik Osheim, 2014-2015.
 
 ### No Warranty
 
