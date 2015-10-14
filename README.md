@@ -27,7 +27,7 @@ predictions, and work with the results.
 
 ### Examples
 
-```scala
+```
 scala> sortilege.iching.IChing.yarrow.display
 res0: String = the clinging fire ䷝ becoming abundance ䷶
 
