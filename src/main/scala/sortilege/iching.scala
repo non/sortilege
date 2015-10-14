@@ -68,12 +68,12 @@ object IChing {
   }
 
   def lookup(repr: Int): Hexagram =
-    hexagrams(table(repr) - 1)
+    Hexagrams(Table(repr) - 1)
 
   def random(): Hexagram =
-    hexagrams(rng.nextInt(64) + 1)
+    Hexagrams(rng.nextInt(64) + 1)
 
-  val hexagrams: Vector[Hexagram] = Vector(
+  val Hexagrams: Vector[Hexagram] = Vector(
     Hexagram("the creative heaven", 1, 0x111111),
     Hexagram("the receptive earth", 2, 0x000000),
     Hexagram("difficulty at the beginning", 3, 0x010001),
@@ -139,6 +139,6 @@ object IChing {
     Hexagram("after completion", 63, 0x010101),
     Hexagram("before completion", 64, 0x101010))
 
-  val table: Map[Int, Int] =
-    hexagrams.iterator.map(h => (h.repr, h.num)).toMap
+  val Table: Map[Int, Int] =
+    Hexagrams.iterator.map(h => (h.repr, h.num)).toMap
 }

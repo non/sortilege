@@ -114,45 +114,48 @@ case class Staff(advice: Draw, influences: Draw, emotions: Draw, outcome: Draw)
 
 object Tarot {
 
-  val suits: Vector[Suit] =
+  val Suits: Vector[Suit] =
     Vector(Cups, Swords, Wands, Pentacles)
 
-  val ranks: Vector[Rank] =
+  val Ranks: Vector[Rank] =
     Vector(Ace, Two, Three, Four, Five, Six, Seven,
       Eight, Nine, Ten, Page, Knight, Queen, King)
 
-  val minorArcana: Vector[Minor] =
-    for { s <- suits; r <- ranks } yield Minor(s, r)
+  val MinorArcana: Vector[Minor] =
+    for { s <- Suits; r <- Ranks } yield Minor(s, r)
 
-  val majorArcana: Vector[Major] =
+  val MajorArcana: Vector[Major] =
     Vector(TheFool, TheMagician, TheHighPriestess, TheEmpress, TheEmperor,
       TheHierophant, TheLovers, TheChariot, Justice, TheHermit,
       WheelOfFortune, Strength, TheHangedMan, Death, Temperance, TheDevil,
       TheTower, TheStar, TheMoon, TheSun, Judgement, TheWorld)
 
-  val deck: Vector[Card] =
-    minorArcana ++ majorArcana
+  val Deck: Vector[Card] =
+    MinorArcana ++ MajorArcana
 
   def shuffle(): Vector[Card] =
-    deck.qshuffled
+    Deck.qshuffled
 
-  def single: Draw =
-    Draw(shuffle.head)
+  def single(): Draw =
+    Draw(Deck.qchoose)
+
+  def draw(n: Int): Vector[Draw] =
+    shuffle.take(n).map(Draw(_))
 
   def threeCard: ThreeCard = {
-    val ds = shuffle.take(3).map(Draw(_))
-    ThreeCard(ds(0), ds(1), ds(2))
+    val Vector(a, b, c) = draw(3)
+    ThreeCard(a, b, c)
   }
 
   def horseshoe: Horseshoe = {
-    val ds = shuffle.take(5).map(Draw(_))
-    Horseshoe(ds(0), ds(1), ds(2), ds(3), ds(4))
+    val Vector(a, b, c, d, e) = draw(5)
+    Horseshoe(a, b, c, d, e)
   }
 
   def celticCross: CelticCross = {
-    val ds = shuffle.take(10).map(Draw(_))
-    val circle = Circle(ds(0), ds(1), ds(2), ds(3), ds(4), ds(5))
-    val staff = Staff(ds(6), ds(7), ds(8), ds(9))
+    val Vector(a, b, c, d, e, f, g, h, i, j) = draw(10)
+    val circle = Circle(a, b, c, d, e, f)
+    val staff = Staff(g, h, i, j)
     CelticCross(circle, staff)
   }
 }

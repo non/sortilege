@@ -9,9 +9,9 @@ case class Phrase(msg: String, value: Trilean)
 
 object Eightball {
 
-  def random(): Phrase = phrases.qchoose
+  def random(): Phrase = Phrases.qchoose
 
-  val phrases: Vector[Phrase] = Vector(
+  val Phrases: Vector[Phrase] = Vector(
     Phrase("it is certain", True),
     Phrase("it is decidedly so", True),
     Phrase("without a doubt", True),

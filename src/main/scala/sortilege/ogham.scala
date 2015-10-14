@@ -44,32 +44,32 @@ case object Eamhancholl extends Feda("Eamhancholl", 'ᚙ', "twin of hazel")
 
 object Ogham {
 
-  val aicmeBeithe: Vector[Feda] =
+  val AicmeBeithe: Vector[Feda] =
     Vector(Beith, Luis, Fearn, Sail, Nion)
 
-  val aicmeHuatha: Vector[Feda] =
+  val AicmeHuatha: Vector[Feda] =
     Vector(Uath, Dair, Tinne, Coll, Ceirt)
 
-  val aicmeMuine: Vector[Feda] =
+  val AicmeMuine: Vector[Feda] =
     Vector(Muin, Gort, NGeadal, Straif, Ruis)
 
-  val aicmeAilme: Vector[Feda] =
+  val AicmeAilme: Vector[Feda] =
     Vector(Ailm, Onn, Ur, Eadhadh, Iodhadh)
 
-  val aicmi: Vector[Vector[Feda]] =
-    Vector(aicmeBeithe,  aicmeHuatha, aicmeMuine, aicmeAilme)
+  val Aicmi: Vector[Vector[Feda]] =
+    Vector(AicmeBeithe,  AicmeHuatha, AicmeMuine, AicmeAilme)
 
-  val forfeda: Vector[Feda] =
+  val Forfeda: Vector[Feda] =
     Vector(Eabhadh, Or, Uilleann, Ifin, Eamhancholl)
 
-  val standard: Vector[Feda] =
-    aicmeBeithe ++ aicmeHuatha ++ aicmeMuine ++ aicmeAilme
+  val Standard: Vector[Feda] =
+    AicmeBeithe ++ AicmeHuatha ++ AicmeMuine ++ AicmeAilme
 
-  val extended: Vector[Feda] =
-    standard ++ forfeda
+  val Extended: Vector[Feda] =
+    Standard ++ Forfeda
 
-  def random(): Feda = standard.qchoose
+  def random(): Feda = Standard.qchoose
 
-  def choose(n: Int): Vector[Feda] = standard.qshuffled.take(n)
+  def choose(n: Int): Vector[Feda] = Standard.qshuffled.take(n)
 
 }

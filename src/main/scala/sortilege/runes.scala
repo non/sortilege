@@ -33,20 +33,20 @@ case object Othila extends Rune("othila", 'ᛟ', 'o', "home")
 case object Dagaz extends Rune("dagaz", 'ᛞ', 'd', "day")
 
 object Runes {
-  val aett1: Vector[Rune] =
+  val Aett1: Vector[Rune] =
     Vector(Fehu, Uruz, Thurisaz, Ansuz, Raido, Kaunan, Gebo, Wunjo)
 
-  val aett2: Vector[Rune] =
+  val Aett2: Vector[Rune] =
     Vector(Hagalaz, Naudiz, Isaz, Jera, Eiwaz, Perth, Algiz, Sowilo)
 
-  val aett3: Vector[Rune] =
+  val Aett3: Vector[Rune] =
     Vector(Tiwaz, Berkanen, Ehwaz, Mannaz, Laguz, Ingwaz, Othila, Dagaz)
 
-  val aetts: Vector[Vector[Rune]] = Vector(aett1, aett2, aett3)
+  val Aetts: Vector[Vector[Rune]] = Vector(Aett1, Aett2, Aett3)
 
-  val all: Vector[Rune] = aett1 ++ aett2 ++ aett3
+  val All: Vector[Rune] = Aett1 ++ Aett2 ++ Aett3
 
-  def random(): Rune = all.qchoose
+  def random(): Rune = All.qchoose
 
-  def choose(n: Int): Vector[Rune] = all.qshuffled.take(n)
+  def choose(n: Int): Vector[Rune] = All.qshuffled.take(n)
 }
