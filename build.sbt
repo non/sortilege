@@ -3,8 +3,6 @@ organization := "org.spire-math"
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 homepage := Some(url("http://github.com/non/sortilege"))
 
-version := "0.4.0"
-
 scalaVersion := "2.12.4"
 crossScalaVersions := List("2.10.6", "2.11.12", "2.12.4")
 
