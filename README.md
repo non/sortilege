@@ -56,16 +56,11 @@ res4: sortilege.Phrase = Phrase(cannot predict now,unknown)
 
 ### Getting Sortilege
 
-Sortilege is published to [bintray](https://bintray.com/) using the
-[bintray-sbt](https://github.com/softprops/bintray-sbt) plugin.
-
-Sortilege supports Scala 2.10 and 2.11. If you use SBT, you can
+Sortilege supports Scala 2.10, 2.11, and 2.12. If you use SBT, you can
 include Sortilege via the following `build.sbt` snippet:
 
 ```scala
-resolvers += "bintray/non" at "http://dl.bintray.com/non/maven"
-
-libraryDependencies += "us.mocul" %% "sortilege" % "0.3.0"
+libraryDependencies += org.spire-math %% "sortilege" % "0.4.0"
 ```
 
 ### Detailed Information
@@ -124,7 +119,7 @@ All code is available to you under the MIT license, available at
 http://opensource.org/licenses/mit-license.php and also in the
 [COPYING](COPYING) file.
 
-Copyright Erik Osheim, 2014-2015.
+Copyright Erik Osheim, 2014-2018.
 
 ### No Warranty
 
