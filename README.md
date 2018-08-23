@@ -66,7 +66,7 @@ libraryDependencies += org.spire-math %% "sortilege" % "0.4.0"
 ### Detailed Information
 
 Sortilege is currently using a
-[Complimentary-multiply-with-carry](http://en.wikipedia.org/wiki/Multiply-with-carry#Complementary-multiply-with-carry_generators)
+[Complementary-multiply-with-carry](http://en.wikipedia.org/wiki/Multiply-with-carry#Complementary-multiply-with-carry_generators)
 random number generator provided by
 [Spire](http://github.com/non/spire). Users may wish to manually seed
 the generator with information derived from the querant, such as the
